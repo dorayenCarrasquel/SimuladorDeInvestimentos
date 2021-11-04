@@ -10,8 +10,18 @@ public class SimuladorService {
     private List<InvestimentoDTO>investimentoInicial = new ArrayList<>();
     private List<SimuladorDTO>simulacao = new ArrayList<>();
 
-    public void calcularTaxaJuros(InvestimentoDTO investiendo){
-        double taxaJuros = Math.pow(investiendo.getRisco().getTaxaRetorno(),investiendo.getPeriodoDeAplicacaoMeses());
+    public double calcularTaxaJuros(InvestimentoDTO investiendo){
+        double taxaJuros = 1+ (Math.pow(investiendo.getRisco().getTaxaRetorno(),investiendo.getPeriodoDeAplicacaoMeses()));
+
+        return taxaJuros;
     }
+    public double calcularMontanteInicial(InvestimentoDTO investiendo){
+         double montante = investiendo.getValorInvestido() * calcularTaxaJuros(investiendo);
+         return montante;
+    }
+
+
+
+
 
 }
