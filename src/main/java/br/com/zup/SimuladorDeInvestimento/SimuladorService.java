@@ -9,8 +9,12 @@ import java.util.List;
 
 @Service
 public class SimuladorService {
-    private List<InvestimentoDTO>investimentoInicial = new ArrayList<>();
+    private List<InvestimentoDTO> investimentos = new ArrayList<>();
     private List<SimuladorDTO>simulacao = new ArrayList<>();
+
+    public void salvaSimulação(InvestimentoDTO investimentoDTO){
+        investimentos.add(investimentoDTO);
+    }
 
     public double calcularTaxaJuros(InvestimentoDTO investiendo){
         double taxaJuros = 1+ (Math.pow(investiendo.getRisco().getTaxaRetorno(),investiendo.getPeriodoDeAplicacaoMeses()));
@@ -37,8 +41,6 @@ public class SimuladorService {
         simulando.setValorInvestido(investimentoDTO.getValorInvestido());
         simulando.setValorTotalDolucro(calcularMontante(investimentoDTO));
         simulando.setValorTotal(simulando.getValorInvestido()+simulando.getValorTotalDolucro());
-        investimentoInicial.add(investimentoDTO);
-        simulacao.add(simulando);
         return simulando;
 
     }
