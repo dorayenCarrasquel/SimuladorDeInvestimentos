@@ -2,10 +2,12 @@ package br.com.zup.SimuladorDeInvestimento;
 
 import br.com.zup.SimuladorDeInvestimento.DTO.SimuladorDTO;
 import br.com.zup.SimuladorDeInvestimento.DTO.InvestimentoDTO;
+import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Service
 public class SimuladorService {
     private List<InvestimentoDTO>investimentoInicial = new ArrayList<>();
     private List<SimuladorDTO>simulacao = new ArrayList<>();
@@ -31,11 +33,14 @@ public class SimuladorService {
         return montante;
     }
 
-    public SimuladorDTO calcularSimulacao(InvestimentoDTO investimentoDTO, SimuladorDTO simulacao){
-        simulacao.setValorInvestido(investimentoDTO.getValorInvestido());
-        simulacao.setValorTotalDolucro(calcularMontante(investimentoDTO));
-        simulacao.setValorTotal(simulacao.getValorInvestido()+simulacao.getValorTotalDolucro());
-        return simulacao;
+    public SimuladorDTO calcularSimulacao(InvestimentoDTO investimentoDTO, SimuladorDTO simulando){
+        simulando.setValorInvestido(investimentoDTO.getValorInvestido());
+        simulando.setValorTotalDolucro(calcularMontante(investimentoDTO));
+        simulando.setValorTotal(simulando.getValorInvestido()+simulando.getValorTotalDolucro());
+        investimentoInicial.add(investimentoDTO);
+        simulacao.add(simulando);
+        return simulando;
+
     }
 
 }
