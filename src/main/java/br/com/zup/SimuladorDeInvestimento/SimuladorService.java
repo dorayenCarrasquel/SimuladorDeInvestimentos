@@ -20,6 +20,12 @@ public class SimuladorService {
          return montante;
     }
 
+    public double calcularJurosCompostos(InvestimentoDTO investimento){
+        double jurosCompostos = calcularMontanteInicial(investimento) - investimento.getValorInvestido();
+        return jurosCompostos;
+    }
+
+
 
 
 
