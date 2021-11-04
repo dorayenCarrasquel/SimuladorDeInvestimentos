@@ -31,9 +31,11 @@ public class SimuladorService {
         return montante;
     }
 
-
-
-
-
+    public SimuladorDTO calcularSimulacao(InvestimentoDTO investimentoDTO, SimuladorDTO simulacao){
+        simulacao.setValorInvestido(investimentoDTO.getValorInvestido());
+        simulacao.setValorTotalDolucro(calcularMontante(investimentoDTO));
+        simulacao.setValorTotal(simulacao.getValorInvestido()+simulacao.getValorTotalDolucro());
+        return simulacao;
+    }
 
 }
