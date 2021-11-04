@@ -15,6 +15,7 @@ public class SimuladorController {
     @PutMapping
     public SimuladorDTO simularInvestimento(@RequestBody InvestimentoDTO investimentoDTO){
        SimuladorDTO simuladorDTO = simuladorService.calcularSimulacao(investimentoDTO);
+       simuladorService.salvaSimulação(investimentoDTO);
        return simuladorDTO;
     }
 }

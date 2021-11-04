@@ -10,7 +10,7 @@ import java.util.List;
 @Service
 public class SimuladorService {
     private List<InvestimentoDTO> investimentos = new ArrayList<>();
-    private List<SimuladorDTO>simulacao = new ArrayList<>();
+
 
     public void salvaSimulação(InvestimentoDTO investimentoDTO){
         investimentos.add(investimentoDTO);
