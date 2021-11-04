@@ -1,4 +1,4 @@
-package br.com.zup.SimuladorDeInvestimento;
+package br.com.zup.SimuladorDeInvestimento.DTO;
 
 public enum Risco {
     ALTO(2.5), MEDIO(0.0015), BAIXO(0.0005);

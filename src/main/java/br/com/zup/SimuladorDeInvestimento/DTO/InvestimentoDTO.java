@@ -1,7 +1,5 @@
 package br.com.zup.SimuladorDeInvestimento.DTO;
 
-import br.com.zup.SimuladorDeInvestimento.Risco;
-
 public class InvestimentoDTO {
     private String email;
     private String nome;

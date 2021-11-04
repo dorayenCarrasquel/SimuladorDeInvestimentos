@@ -1,11 +1,11 @@
 package br.com.zup.SimuladorDeInvestimento.DTO;
 
-public class InvestidoDTO {
+public class SimuladorDTO {
     private double valorInvestido;
     private double valorTotalDolucro;
     private double valorTotal;
 
-    public InvestidoDTO() {
+    public SimuladorDTO() {
     }
 
     public double getValorInvestido() {
