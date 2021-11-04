@@ -37,7 +37,8 @@ public class SimuladorService {
         return montante;
     }
 
-    public SimuladorDTO calcularSimulacao(InvestimentoDTO investimentoDTO, SimuladorDTO simulando){
+    public SimuladorDTO calcularSimulacao(InvestimentoDTO investimentoDTO){
+        SimuladorDTO simulando = new SimuladorDTO();
         simulando.setValorInvestido(investimentoDTO.getValorInvestido());
         simulando.setValorTotalDolucro(calcularMontante(investimentoDTO));
         simulando.setValorTotal(simulando.getValorInvestido()+simulando.getValorTotalDolucro());
