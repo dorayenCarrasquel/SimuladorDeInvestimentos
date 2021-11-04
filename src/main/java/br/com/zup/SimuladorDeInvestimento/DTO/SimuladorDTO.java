@@ -12,6 +12,12 @@ public class SimuladorDTO {
         return valorInvestido;
     }
 
+    public SimuladorDTO(double valorInvestido, double valorTotalDolucro, double valorTotal) {
+        this.valorInvestido = valorInvestido;
+        this.valorTotalDolucro = valorTotalDolucro;
+        this.valorTotal = valorTotal;
+    }
+
     public void setValorInvestido(double valorInvestido) {
         this.valorInvestido = valorInvestido;
     }
