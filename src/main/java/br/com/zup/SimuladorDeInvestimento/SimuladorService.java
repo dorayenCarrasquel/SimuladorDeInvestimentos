@@ -2,6 +2,7 @@ package br.com.zup.SimuladorDeInvestimento;
 
 import br.com.zup.SimuladorDeInvestimento.DTO.SimuladorDTO;
 import br.com.zup.SimuladorDeInvestimento.DTO.InvestimentoDTO;
+import br.com.zup.SimuladorDeInvestimento.Exception.SimulacaoException;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -17,7 +18,8 @@ public class SimuladorService {
     }
 
     public double calcularTaxaJuros(InvestimentoDTO investiendo){
-        double taxaJuros = 1+ (Math.pow(investiendo.getRisco().getTaxaRetorno(),investiendo.getPeriodoDeAplicacaoMeses()));
+        double taxaJuros = 1+ (Math.pow(investiendo.getRisco().getTaxaRetorno(),
+                investiendo.getPeriodoDeAplicacaoMeses()));
 
         return taxaJuros;
     }
@@ -42,6 +44,9 @@ public class SimuladorService {
         simulando.setValorInvestido(investimentoDTO.getValorInvestido());
         simulando.setValorTotalDolucro(calcularMontante(investimentoDTO));
         simulando.setValorTotal(simulando.getValorInvestido()+simulando.getValorTotalDolucro());
+        if (investimentoDTO.getValorInvestido()< 5000 && investimentoDTO.getRisco().equals("ALTO")){
+            throw new SimulacaoException("Minimo  da Simulação não permitido");
+        }
         return simulando;
 
     }

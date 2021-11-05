@@ -1,13 +1,20 @@
 package br.com.zup.SimuladorDeInvestimento.DTO;
 
+import org.hibernate.validator.constraints.br.CPF;
+
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
+
 public class InvestimentoDTO {
+    @Email(message = "Email não valido")
     private String email;
+    @NotBlank(message = "Nome em branco")
     private String nome;
     private String cpf;
     private double valorInvestido;
     private int periodoDeAplicacaoMeses;
     private Risco risco;
-
     public InvestimentoDTO() {
     }
 
